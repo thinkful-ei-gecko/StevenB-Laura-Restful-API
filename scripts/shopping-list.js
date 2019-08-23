@@ -1,5 +1,5 @@
 'use strict';
-/* global store, $ */
+/* global store, api */
 
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function(){
@@ -72,6 +72,10 @@ const shoppingList = (function(){
         .then(newItem => {
           store.addItem(newItem);
           render();
+        })
+        .catch(err => {
+          alert(err.message);
+          render();
         });
       //store.addItem(newItemName);
       render();
@@ -92,6 +96,10 @@ const shoppingList = (function(){
         .then(() => {
           store.findAndUpdate(id, { checked: !retrieveItem.checked });
           render();
+        })
+        .catch(err => {
+          alert(err.message);
+          render();
         });
       //store.findAndToggleChecked(id);
     });
@@ -106,6 +114,10 @@ const shoppingList = (function(){
       api.deleteItem(id)
         .then(() => {
           store.findAndDelete(id);
+          render();
+        })
+        .catch(err => {
+          alert(err.message);
           render();
         });
       //store.findAndDelete(id);
@@ -122,6 +134,10 @@ const shoppingList = (function(){
         .then(res => res.json())
         .then(() => {
           store.findAndUpdate(id, { name: itemName });
+          render();
+        })
+        .catch(err => {
+          alert(err.message);
           render();
         });
     });

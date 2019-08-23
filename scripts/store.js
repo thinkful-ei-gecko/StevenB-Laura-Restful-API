@@ -1,5 +1,5 @@
 'use strict';
-/* global Item */
+/* global */
 // eslint-disable-next-line no-unused-vars
 const store = (function(){
   const addItem = function(name) {
@@ -30,7 +30,13 @@ const store = (function(){
   const findAndUpdate = function(id, newData) {
     const foundId = this.items.find(item => item.id === id);
     Object.assign(foundId,newData);
-  }
+  };
+
+  //attempted error handling
+  /* const newError = function() {
+    let = error;
+    return fetch()
+  }; */
 
   return {
     items: [],
