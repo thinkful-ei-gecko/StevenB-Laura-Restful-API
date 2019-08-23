@@ -26,13 +26,17 @@ const api = (function() {
       headers: {'Content-Type': 'application/json'},
       body: newUpdateData
     });
+  };
 
+  const deleteItem = function(id) {
+    return fetch(`${BASE_URL}/items/${id}`, { method: 'DELETE'});
   };
 
   return {
     getItems,
     createItem,
-    updateItem
+    updateItem,
+    deleteItem
   };
 
 }());
