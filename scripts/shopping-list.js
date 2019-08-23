@@ -109,9 +109,12 @@ const shoppingList = (function(){
       event.preventDefault();
       const id = getItemIdFromElement(event.currentTarget);
       const itemName = $(event.currentTarget).find('.shopping-item').val();
-      store.findAndUpdateName(id, itemName);
-      store.setItemIsEditing(id, false);
-      render();
+      api.updateItem(id, { name: itemName })
+        .then(res => res.json())
+        .then(() => {
+          store.findAndUpdate(id, { name: itemName });
+          render();
+        });
     });
   }
   
