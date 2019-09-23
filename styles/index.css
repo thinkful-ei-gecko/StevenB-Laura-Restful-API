@@ -6,12 +6,19 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+#filter-checked {
+  margin-bottom: 9px;
+}
+.options {
+  margin-bottom: 12px;
+}
 button, input[type="text"] {
   padding: 5px;
 }
 
 button:hover {
   cursor: pointer;
+  background-color: beige;
 }
 
 button:hover:disabled {
@@ -21,7 +28,15 @@ button:hover:disabled {
 .hidden {
   display: none;
 }
-
+.yellow:hover {
+  background-color: yellow;
+}
+.green:hover {
+  background-color: rgb(3, 212, 3);
+}
+.red:hover {
+  background-color: red;
+}
 #shopping-list-item {
   width: 250px;
 }
